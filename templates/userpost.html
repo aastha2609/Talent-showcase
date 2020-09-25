@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'base2.html'%}
+
+
+{% block body_block %}
+<div class="container my-4">
+
+
+<form class="float-right" method="post" action="post" enctype="multipart/form-data">
+ {% csrf_token %}
+<div class="form-group">
+  <label for="image">Upload Media:</label>
+  <input type="file" name="image" class="form-control-file" id="image">
+  <label for="caption">Captions :</label>
+  <textarea class="form-control" name='caption' id="caption" rows="3"></textarea>
+ <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     <button type="submit" class="btn btn-primary">Post</button>
+   </div>
+   </div>
+</form>
+{% endblock %}

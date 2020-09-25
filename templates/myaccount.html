@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+{% extends 'base2.html'%}
+
+{% block navbar%}
+<button type="button" name="button" class="btn btn-outline-primary mx-5"><a href="/userAccount/userpost" >Post</a></button>
+<!-- <a href="/userAccount/userpost">Post</a> -->
+{% endblock navbar %}
+
+{% block body_block %}
+{%for i in posts%}
+<div class="container my-4">
+
+
+<div class="card" style="width: 28rem;">
+
+ {%if i.image %}
+ <img class="postimg width-2rem height-1rem" src={{i.image.url}} alt="Card image cap">
+ {%endif%}
+ <div class="card-body">
+   <h5 class="card-title">{{i.userId}}<small>{{i.date.date}}</h5>
+   <p class="card-text">{{i.caption}}</p>
+   <a href="#" class="btn btn-primary">Like</a>
+   <a href="#" class="btn btn-primary">Comment</a>
+   <a href="#" class="btn btn-primary">Share</a>
+ {%if i.userId == request.user%}
+   <a href="{% url 'delpost' i.id %}" class="btn btn-danger mx-5 px-3">Delete</a>
+ {%endif%}
+ </div>
+</div>
+
+</div>
+
+{%endfor%}
+{% endblock %}

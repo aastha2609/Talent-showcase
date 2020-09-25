@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block body_block %}
+
+
+<div class="container ml-150">
+
+
+<form class="form-signin" method="post">
+  {% csrf_token %}
+    <div class="text-center mb-4">
+      <img class="mb-4" src="static/images/154869.jpg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">SignUp</h1>
+      {% comment %} <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p> {% endcomment %}
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="name" id="text" class="form-control" placeholder="UserName" required autofocus>
+      <label for="name">UserName</label>
+    </div>
+    <div class="form-label-group">
+      <input type="email" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
+      <label for="email">Email</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" name="password1" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="Password1">Password</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" name="password2" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="Password2"> Reenter your Password</label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">SignUp</button>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'base2.html'%}
+
+{% block css%}
+
+
+
+.userImage{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+
+}
+
+hr{
+  padding-top: 9px;
+  border-top :3px solid black;
+
+}
+.pst{
+  width:250px;
+  height:250px;
+}
+.posts
+{
+  margin-left: 180px;
+
+}
+{% endblock css %}
+{% block body_block %}
+
+<div class="container my-4">
+  <div class="media">
+    <img src="{{userImg.url}}" class="align-self-start mr-3 userImage" alt=".">
+    <div class="media-body info">
+      <h4 class='mt-0'>{{request.user}}</h4>
+      <p>Follower : {{follower}}  Following : {{following}}</p>
+      <p><b>{{bio}}<b></p>
+        <hr>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class=" container row posts">
+  {%for i in posts %}
+   {%for j in i%}
+    <div class="col-md-4">
+    <img src="{{j.image.url}}" alt="gd"class="pst">
+  <br><br>
+  </div>
+{%endfor%}
+{%endfor%}
+</div>
+
+
+{% endblock %}
