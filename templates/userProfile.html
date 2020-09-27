@@ -33,9 +33,10 @@ hr{
   <div class="media">
     <img src="{{userImg.url}}" class="align-self-start mr-3 userImage" alt=".">
     <div class="media-body info">
-      <h4 class='mt-0'>{{request.user}}</h4>
+      <h4 class='mt-0'>{{user_obj}}</h4>
       <p>Follower : {{follower}}  Following : {{following}}</p>
       <p><b>{{bio}}<b></p>
+        <a href="{{conn}}">{{conn}}</a>
         <hr>
 
     </div>

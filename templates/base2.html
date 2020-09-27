@@ -19,7 +19,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   {% if request.user %}
-   <a class="navbar-brand" href="#">{{request.user}}</a>
+   <a class="navbar-brand" href="#">{{user_obj}}</a>
   {% else %}
   <a class="navbar-brand" href="#">Navbar</a>
   {%endif%}
