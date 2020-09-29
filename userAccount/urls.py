@@ -7,6 +7,8 @@ urlpatterns = [
     path('',views.userHome,name='userHome'),
     path('post',views.post,name='post'),
     path('userpost',views.userpost,name='userpost'),
-    path('<int:PostId>',views.delPost,name='delpost'),
+    path('like_disklike',views.likepost, name='like_dislike_post'),
+    path('<int:ID>',views.delPost,name='delpost'),
     path('<str:username>',views.userProfile,name='userprofile')
 ]
+ 

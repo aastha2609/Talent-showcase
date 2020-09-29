@@ -21,3 +21,21 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+class Like(models.Model):
+    user = models.ManyToManyField(User, related_name="likingUser")
+    post = models.OneToOneField(Post, on_delete=models.CASCADE)
+    # likers = models.IntegerField(default = 0)
+
+    @classmethod 
+    def liked(cls, post, liking_user):
+        obj, create = cls.objects.get_or_create(post= post)
+        obj.user.add(liking_user)
+
+    @classmethod 
+    def disliked(cls, post, disliking_user):
+        obj, create = cls.objects.get_or_create(post= post)
+        obj.user.remove(disliking_user)
+
+    def __str__(self):
+        return str(self.post)
