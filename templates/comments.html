@@ -1,0 +1,35 @@
+{% extends 'myaccount.html'%}
+
+
+{% block body_block %}
+<div class="container my-6 mx-6">
+
+<div class="container">
+
+
+<form>
+  {%csrf_token%}
+
+  <div class="form-group">
+    <label for="text">Add a Comment:</label>
+    <input type="text" class="form-control" id="text" name="text">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Comment</button>
+</form></div>
+<div class="container my-4">
+<div class="card">
+  <div class="card-header">
+  Comments
+  </div>
+
+
+
+  <div class="card-body">
+    <h5 class="card-title">username</h5>
+    <p class="card-text">Captions here.</p>
+  
+  </div>
+</div>
+</div>  </div>
+{% endblock %}

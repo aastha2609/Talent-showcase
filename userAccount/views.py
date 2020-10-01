@@ -70,7 +70,8 @@ def likepost(request):
     # # # return redirect('/userAccount')
     return HttpResponse(response, content_type = 'application/json')
 
-
+def comments(request):
+    return render(request,'comments.html')
 
 def userProfile(request,username):
     user=User.objects.filter(username=username)

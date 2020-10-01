@@ -9,6 +9,6 @@ urlpatterns = [
     path('userpost',views.userpost,name='userpost'),
     path('like_disklike',views.likepost, name='like_dislike_post'),
     path('<int:ID>',views.delPost,name='delpost'),
-    path('<str:username>',views.userProfile,name='userprofile')
+    path('<str:username>',views.userProfile,name='userprofile'),
+    path('slug/commments',views.comments,name='comment')
 ]
- 
