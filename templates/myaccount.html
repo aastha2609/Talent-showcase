@@ -23,11 +23,15 @@
 
   {% if i in liked_post %}
    <a href="{% url 'like_dislike_post' %}" class="btn btn-primary like" id="{{ i.id }}">Liked</a>
- 
+
   {% else %}
    <a href="{% url 'like_dislike_post' %}" class="btn btn-primary like" id="{{ i.id }}">Like</a>
-  {% endif %} 
-   <a href="#" class="btn btn-primary">Comment</a>
+  {% endif %}
+   <a href="{%url 'comment'%}" class="btn btn-primary">
+     Comment
+   </a>
+   {% block comments%}
+   {% endblock comments %}
    <a href="#" class="btn btn-primary">Share</a>
  {%if i.userId == request.user%}
    <a href="{% url 'delpost' i.id %}" class="btn btn-danger mx-5 px-3 delete" id="{{ i.id }}">Delete</a>
@@ -51,7 +55,7 @@
     $.ajax({
       url: href,
       data: {},
-    }); 
+    });
 
     $("#"+id).fadeOut(1000);
   });
@@ -65,7 +69,7 @@
     $.ajax({
       url: href,
       data: {'likeId':id},
-    }); 
+    });
       //success: function(response){
       // if(response.liked)
      //  {
@@ -75,9 +79,7 @@
      //    $(".like").html("Like")
      //  }
     //}
-  });  
+  });
 
 </script>
 {% endblock js %}
-
-
